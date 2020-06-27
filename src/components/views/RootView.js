@@ -6,6 +6,7 @@ import Text from '../../constants/Text';
 import { connect } from 'react-redux';
 import { initLake as initLakeAction } from '../../actions';
 import { jump as jumpAction } from '../../actions';
+import { reproduce as reproduceAction } from '../../actions';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -19,7 +20,7 @@ const Error = styled.p`
     font-weight: 700;
 `;
 
-const RootView = ({ initLake, error, isLakeInit, jump }) => {
+const RootView = ({ initLake, error, isLakeInit, jump, reproduce }) => {
     useEffect(() => {
         initLake();
     }, []);
@@ -33,6 +34,7 @@ const RootView = ({ initLake, error, isLakeInit, jump }) => {
             <div>
                 <h3>{Text.actions}</h3>
                 <Button onClick={jump}>{Text.buttons.jump}</Button>
+                <Button onClick={reproduce}>{Text.buttons.reproduce}</Button>
             </div>
         </Wrapper>
       )
@@ -46,6 +48,7 @@ const mapStateToProps = ({ isLakeInit, error }) => ({
 const mapDispatchToProps = (dispatch) => ({
     initLake: () => dispatch(initLakeAction()),
     jump: () => dispatch(jumpAction()),
+    reproduce: () => dispatch(reproduceAction()),
   });
   
   export default connect(
