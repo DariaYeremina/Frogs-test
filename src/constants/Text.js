@@ -8,6 +8,7 @@ export default {
         chooseAvailable: 'You must choose one frog ang one empty cell'
     },
     buttons: {
-        jump: 'Jump'
+        jump: 'Jump',
+        reproduce: 'Reproduce'
     }
 };

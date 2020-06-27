@@ -120,6 +120,30 @@ const reducer = (state = initialState, action) => {
                 activeCells: [],
                 error: ''
             }
+        case actions.REPRODUCE: 
+            let reproducedLake = [...state.lake];
+            let firstParent = reproducedLake[state.activeCells[0].row][state.activeCells[0].cell];
+            let secondParent = reproducedLake[state.activeCells[1].row][state.activeCells[1].cell];
+
+            let mother = firstParent.gender === 'female' ? firstParent : secondParent;
+            // let child;
+
+            // for (let i = mother.row; i < reproducedLake.length; i++) {
+            //     for (let j = mother.cell; j < i.length; j++) {
+            //         if (reproducedLake[i][j].available) {
+            //             child = reproducedLake[i][j];
+            //             console.log(reproducedLake[i][j])
+            //             return;
+            //         }
+            //     }
+            // }
+
+            return {
+                ...state,
+                lake: reproducedLake,
+                activeCells: [],
+                error: ''
+            }
         default: 
             return state;
     }
